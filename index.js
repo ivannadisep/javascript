@@ -1,18 +1,3 @@
-
-let producto = parseInt(prompt('Que producto deseas comprar? 1.amelie - 2.lipa - 3.ocean'))
-let seguirComprando = true 
-let totalCompra = 0
-let decision
-
-// while(seguirComprando===true){
-// if (producto===1){
-//     totalCompra = totalCompra + 6000
-// }   else if (producto===2){
-//         totalCompra = totalCompra + 7500
-// }   else if (producto===3){
-//         totalCompra = totalCompra + 7500
-// }
-
 //ARREGLO DE PRODUCTOS
 const productosArray = []
 
@@ -29,44 +14,65 @@ class NuevoProducto{
 const amelie= new NuevoProducto('Amelie', 6000, 20, 1);
 productosArray.push(amelie);
 const lipa= new NuevoProducto('Lipa', 7500, 5, 2);
-productosArray.push(amelie);
+productosArray.push(lipa);
 const ocean= new NuevoProducto('Ocean', 7500, 8, 3);
-productosArray.push(amelie);
+productosArray.push(ocean);
 
 console.log(productosArray)
 
+//DOM
 
-while(seguirComprando===true){
-    /*
-            if (producto === ocean.id){
-                    totalCompra = totalCompra + ocean.precio
-            }   else if (producto=== lipa.id){
-                    totalCompra = totalCompra + lipa.precio
-            }   else if (producto=== amelie){
-                    totalCompra = totalCompra + amelie.precio
-            }   else if (producto=== chula){
-                    totalCompra = totalCompra + chula.precio
-            }*/
-totalCompra = totalCompra + productosArray[producto-1].precio
+const selectProd = document.getElementById ('lista')
 
-decision = parseInt (prompt ('Quieres seguir comprando? 1.Si - 2.No'))
-if(decision===1){
-    producto = parseInt(prompt('Que producto deseas comprar? 1.Ocean - 2.Lipa - 3.Amelie'))
-    } else{
-    seguirComprando = false
-    }
+productosArray.forEach(elemento=>{
+    const optionProd = document.createElement ('option')
+    optionProd.innerText = `${elemento.nombre} : $${elemento.precio}`
+    optionProd.setAttribute('id', `${elemento.id}`)
+    selectProd.append(optionProd)
+})
+
+
+//EVENTOS 
+const carrito = []
+
+const button = document.getElementById('button')
+const finalizar = document.getElementById('finalizar')
+
+button.onclick = () => {
+        const indexProd = selectProd.selectedIndex
+        const prooductoSeleccionado = productosArray [indexProd]
+        carrito.push(prooductoSeleccionado)
 }
 
-const totalCompraConDescuento = descuento (totalCompra)
-alert(`El total de tu compra es ${totalCompra}`)
+finalizar.onclick = () => {
+        let total = 0
+        carrito.forEach (prod =>{
+                total = total + prod.precio
+        })
+        alert (`Elegiste ${carrito.length} productos. El total de tu compra es ${total}`)
 
-//funcion descuento
+}
 
-function descuento(valor){
-let descuento = 0
-if(valor<=6500){
-    descuento = 5
-} else if(valor >7000){
-    descuento = 10
+//STORAGE Y JSON
+const formularioUsuario = document.getElementById('formulario')
+const titulo = document.getElementById('titulo')
+const nombreUsuario = document.getElementById('nombre')
+const apellidoUsuario = document.getElementById('apellido')
+
+const infoUsuario = {}
+
+//evento 
+
+formularioUsuario.onsubmit = (e) =>{
+        e.preventDefault ()
+        infoUsuario.nombre = nombreUsuario.value
+        infoUsuario.apellido = apellidoUsuario.value
+        localStorage.setItem('infoUsuario',JSON.stringify(infoUsuario))
 }
+
+const infoUsuarioStorage = JSON.parse(localStorage.getItem('infoUsuario'))
+console.log(infoUsuarioStorage)
+if(infoUsuarioStorage.nombre !==""){
+        titulo.innerText = `Hola ${infoUsuarioStorage.nombre}, bienvenida de nuevo! `
 }
+
