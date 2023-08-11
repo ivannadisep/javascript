@@ -1,15 +1,16 @@
-//ARREGLO DE PRODUCTOS
+// // // //ARREGLO DE PRODUCTOS
 const productosArray = []
 
-//OBJETO Y CLASE
+// // //OBJETO Y CLASE
 class NuevoProducto{
     constructor(nombre, precio, stock, id){
     this.nombre = nombre;
     this.precio = precio;
     this.stock = stock;
     this.id = id;
-    }
 }
+}
+
 
 const amelie= new NuevoProducto('Amelie', 6000, 20, 1);
 productosArray.push(amelie);
@@ -17,8 +18,14 @@ const lipa= new NuevoProducto('Lipa', 7500, 5, 2);
 productosArray.push(lipa);
 const ocean= new NuevoProducto('Ocean', 7500, 8, 3);
 productosArray.push(ocean);
+const dua= new NuevoProducto('Dua', 13500, 5, 4);
+productosArray.push(dua);
+const lula= new NuevoProducto('Lula', 10000, 8, 5);
+productosArray.push(lula);
+const gabi= new NuevoProducto('Gabi', 15500, 8, 6);
+productosArray.push(gabi);
 
-console.log(productosArray)
+// // console.log(productosArray)
 
 //DOM
 
@@ -32,7 +39,7 @@ productosArray.forEach(elemento=>{
 })
 
 
-//EVENTOS 
+//EVENTOS Y LIBRERIA
 const carrito = []
 
 const button = document.getElementById('button')
@@ -44,14 +51,22 @@ button.onclick = () => {
         carrito.push(prooductoSeleccionado)
 }
 
+
 finalizar.onclick = () => {
         let total = 0
         carrito.forEach (prod =>{
-                total = total + prod.precio
-        })
-        alert (`Elegiste ${carrito.length} productos. El total de tu compra es ${total}`)
+      total = total + prod.precio
+});
+Swal.fire({
+        title: `Elegiste ${carrito.length} productos. El total de tu compra es ${total}`,
+        width: 600,
+        padding: '3em',
+        color: '#000000',
+        background: '#FFEBCD ',
 
+})
 }
+
 
 //STORAGE Y JSON
 const formularioUsuario = document.getElementById('formulario')
@@ -75,4 +90,3 @@ console.log(infoUsuarioStorage)
 if(infoUsuarioStorage.nombre !==""){
         titulo.innerText = `Hola ${infoUsuarioStorage.nombre}, bienvenida de nuevo! `
 }
-
