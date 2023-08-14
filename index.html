@@ -1,88 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos/estilos.css">
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>E-COMMERCE</title>
 </head>
+
 <body>
 
-        <div class="nav">
-            <h1>MI TIENDA</h1>
-            <button class="buttoncarrito">IR A CARRITO</button>
-        </div>
+    <header>
+        <h1> BIENVENIDA A MI TIENDA</h1>
 
-        <div class="TITULO" id="titulo">
-            <h2>Bienvenida a Las Margaritas tienda</h2>
-        </div>
-    
         <form class="formulario" id="formulario">
             <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre">
             <input type="text" name="apellido" id="apellido" placeholder="Ingresa tu apellido">
-            <input type="submit" value="INGRESAR">
+            <input class="submit" type="submit" value="INGRESAR">
         </form>
+    </header>
 
-        <div class="productos" id="divPrincipal">
-            <select name="lista" id="lista"> </select>
-            <button id="button" >INGRESAR PRODUCTO DESEADO</button>
-            <button id="finalizar" >FINALIZAR COMPRA</button>
-            </div>        
 
-        <div class="contenido1">
-            <div class="contenedor-producto"> 
-                <h3>AMELIE</h3>
-                <img class="img" src="/multimedia/bikiniamelie.png" alt="amelie">
-                <h3>$7.500</h3>
-                <button class="button">AGREGAR A CARRITO</button>
-    
-            </div>
-    
-            <div class="contenedor-producto"> 
-                <h3>LIPA</h3>
-                <img class="img" src="/multimedia/bikinilipa.png" alt="lipa">
-                <h3>$7.500</h3>
-                <button class="button">AGREGAR A CARRITO</button>
-    
-            </div>
-    
-            <div class="contenedor-producto"> 
-                <h3>OCEAN</h3>
-                <img class="img" src="/multimedia/bikiniocean.png" alt="ocean">
-                <h3>$6.000</h3>
-                <button class="button">AGREGAR A CARRITO</button>
-            </div>  
-    
-        </div>
+    <div class="contenedor">
+        <div class="contenedor-items">
 
-        <div class="contenido2"> 
-            <div class="contenedor-producto"> 
-                <h3>DUA</h3>
-                <img class="img" src="/multimedia/bikinidua.png" alt="dua">
-                <h3>$13.500</h3>
-                <button class="button">AGREGAR A CARRITO</button>
-    
+
+            <div class="item">
+                <span class="titulo-item"> Bikini Amelie</span>
+                <img src="./multimedia/bikiniamelie.png" alt="amelie" class="img-item">
+                <span class="precio-item">$12.500 </span>
+                <button class="boton-item"> Agregar a carrito</button>
             </div>
-    
-            <div class="contenedor-producto"> 
-                <h3>GABI</h3>
-                <img class="img" src="/multimedia/bikinigabi.png" alt="gabi">
-                <h3>$15.500</h3>
-                <button class="button">AGREGAR A CARRITO</button>
-    
-            </div>\
-    
-            <div class="contenedor-producto"> 
-                <h3>LULA</h3>
-                <img class="img" src="/multimedia/bikinilula.png" alt="lula">
-                <h3>$10.000</h3>
-                <button class="button">AGREGAR A CARRITO</button>
+
+
+            <div class="item">
+                <span class="titulo-item"> Bikini Lula</span>
+                <img src="./multimedia/bikinilula.png" alt="lula" class="img-item">
+                <span class="precio-item">$13.500 </span>
+                <button class="boton-item"> Agregar a carrito</button>
+            </div>
+
+
+            <div class="item">
+                <span class="titulo-item"> Bikini Gabi</span>
+                <img src="./multimedia/bikinigabi.png" alt="gabi" class="img-item">
+                <span class="precio-item">$13.500 </span>
+                <button class="boton-item"> Agregar a carrito</button>
+            </div>
+
+
+            <div class="item">
+                <span class="titulo-item"> Bikini Dua</span>
+                <img src="./multimedia/bikinidua.png" alt="dua" class="img-item">
+                <span class="precio-item">$11.500 </span>
+                <button class="boton-item"> Agregar a carrito</button>
+            </div>
+
+
+            <div class="item">
+                <span class="titulo-item"> Bikini Ocean</span>
+                <img src="./multimedia/bikiniocean.png" alt="ocean" class="img-item">
+                <span class="precio-item">$12.000 </span>
+                <button class="boton-item"> Agregar a carrito</button>
+            </div>
+
+
+            <div class="item">
+                <span class="titulo-item"> Bikini Lipa</span>
+                <img src="./multimedia/bikinilipa.png" alt="lipa" class="img-item">
+                <span class="precio-item">$12.500 </span>
+                <button class="boton-item"> Agregar a carrito</button>
             </div>
         </div>
-    
 
-        <script></script>
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <div class="carrito">
+            <div class="header-carrito">
+                <h2>Tu carrito</h2>
+            </div>
+
+
+            <div class="carrito-items">
+                <div class="carrito-item">
+                    <img src="" alt="" width="80px">
+                    <div class="carrito-item-detalles">
+                        <span class="carrito-item-titulo"></span>
+                        <div class="selector-cantidad">
+                            <i class="fa-solid fa-minus restar-cantidad"></i>
+                            <input type="text" value="1" class="carrito-item-cantidad" disabled>
+                            <i class="fa-solid fa-plus sumar-cantidad"></i>
+                        </div>
+                        <span class="carrito-item-precio">0</span>
+                    </div>
+                    <span class="btn-eliminar">
+                        <i class="fa-solid fa-trash"></i>
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="carrito-total">
+                <div class="fila">
+                    <strong>Tu total</strong>
+                    <span class="carrito-precio-total">
+                        $0
+                    </span>
+                    <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i></button>
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="index.js"></script>
 </body>
+
 </html>
